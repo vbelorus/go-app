@@ -1,0 +1,22 @@
+
+version: "3.6"
+services:
+  goservice:
+    build:
+      context: '../app'
+      dockerfile: './../docker/goservice/Dockerfile'
+    ports:
+      - "8080:8080"
+    restart: always
+    env_file:
+      - ./../.env
+
+  clickhouse-server:
+    build:
+      context: './clickhouse-server'
+      dockerfile: './Dockerfile'
+    volumes:
+      - clickhousedb:/var/lib/clickhouse
+
+volumes:
+  clickhousedb:

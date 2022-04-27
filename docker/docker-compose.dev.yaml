@@ -1,0 +1,7 @@
+
+version: "3.6"
+services:
+  clickhouse-server:
+    ports:
+      - "8123:8123"
+
